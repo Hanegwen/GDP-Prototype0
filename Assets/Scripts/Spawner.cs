@@ -18,6 +18,7 @@ public class Spawner : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        spawnLocation = new Vector3(20, 0);
         pController = GameObject.FindObjectOfType<PlayerController>();
 	}
 	
@@ -52,7 +53,7 @@ public class Spawner : MonoBehaviour
             spawnLocation.y = ranY;
 
             Spawn();
-            spawnLocation.x += 20;
+            spawnLocation.x += distanceForSpawn;
 
             if (distanceForSpawn > 2)
             {
