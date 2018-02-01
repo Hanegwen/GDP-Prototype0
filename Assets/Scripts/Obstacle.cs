@@ -7,6 +7,10 @@ public class Obstacle : MonoBehaviour
     PlayerController player;
     public AudioSource obstacleAudio;
     public AudioClip crashSound;
+
+    public enum enemyState {still, moving, explosive };
+
+    public enemyState ObstacleType;
     // Use this for initialization
     void Start()
     {
@@ -17,9 +21,12 @@ public class Obstacle : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (this.gameObject.transform.position.x - player.transform.position.x < -10)
+        if (player != null)
         {
-            Destroy(this.gameObject);
+            if (this.gameObject.transform.position.x - player.transform.position.x < -10)
+            {
+                Destroy(this.gameObject);
+            }
         }
         
 	}
@@ -30,4 +37,5 @@ public class Obstacle : MonoBehaviour
        
         
     }
+
 }

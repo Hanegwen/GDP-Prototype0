@@ -29,8 +29,9 @@ public class Spawner : MonoBehaviour
         {
             CheckLocation();
         }
-        
-	}
+
+
+    }
 
     void CheckLocation()
     {
