@@ -14,6 +14,8 @@ public class Spawner : MonoBehaviour
 
 
     public float distanceForSpawn; //higher == easier
+    public float spawnX;
+
 
     // Use this for initialization
     void Start ()
@@ -39,10 +41,14 @@ public class Spawner : MonoBehaviour
         if (spawnLocation.x - Player.transform.position.x < distanceForSpawn)
         {
             
-            ranY = Random.Range(0, 2);
+            ranY = Random.Range(0, 3);
             if (ranY == 0)
             {
                 ranY = pController.bottom;
+            }
+            if (ranY == 2)
+            {
+                ranY = pController.center;
             }
             else
             {
@@ -50,13 +56,19 @@ public class Spawner : MonoBehaviour
             }
 
             spawnLocation.y = ranY;
+            spawnLocation.x = Player.transform.position.x + spawnX;
+
 
             Spawn();
-            spawnLocation.x += distanceForSpawn;
+            
 
             if (distanceForSpawn > 4) //decrease distance at which objects spawn from players over time
             {
                 distanceForSpawn--;
+            }
+            else if(spawnX > 30)
+            {
+                spawnX--;
             }
         }
         

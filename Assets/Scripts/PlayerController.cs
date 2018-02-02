@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum PlayerPosition {Top, Bottom };
+    public enum PlayerPosition {Top, Center, Bottom };
     public PlayerPosition where;
 
     public int top = 2;
+    public int center = 0;
     public int bottom = -2;
 
     public float speed = 5;
@@ -58,11 +59,13 @@ public class PlayerController : MonoBehaviour
             if(where == PlayerPosition.Top)
             {
                 where = PlayerPosition.Bottom;
+                //this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, bottom, Time.deltaTime));
             }
 
             else
             {
                 where = PlayerPosition.Top;
+                //this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, top, Time.deltaTime));
             }
         }
     }
@@ -76,12 +79,12 @@ public class PlayerController : MonoBehaviour
 
         if (where == PlayerPosition.Top)
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, top);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, top, Time.deltaTime));
         }
 
         else
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, bottom);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, bottom, Time.deltaTime));
         }
     }
 
