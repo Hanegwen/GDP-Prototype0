@@ -11,6 +11,10 @@ public class Obstacle : MonoBehaviour
     public enum enemyState {still, moving, explosive };
 
     public enemyState ObstacleType;
+
+    //used for explosives
+    Vector3 maxSize = new Vector3(2, 2, 1);
+
     // Use this for initialization
     void Start()
     {
@@ -21,6 +25,27 @@ public class Obstacle : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        //moving enemies lerping between lanes
+        if (ObstacleType == enemyState.moving)
+        {
+            this.gameObject.transform.position = Vector3.Lerp(new Vector3(this.gameObject.transform.position.x, 2, 0), new Vector3(this.gameObject.transform.position.x, -2, 0), Mathf.PingPong(Time.time * 0.5f, 1.0f));
+
+        }
+
+        //enemies expanding
+        if (ObstacleType == enemyState.explosive)
+        {
+            if (this.gameObject.transform.position.x - player.transform.position.x <= 1.5)
+            {
+                if (this.gameObject.transform.localScale != maxSize)
+                {
+                    this.gameObject.transform.localScale += new Vector3(0.05f, 0.05f, 0);
+                }
+            }                     
+                        
+        }        
+        
+        //destroy object on passing out of view
         if (player != null)
         {
             if (this.gameObject.transform.position.x - player.transform.position.x < -10)
@@ -28,6 +53,8 @@ public class Obstacle : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
+
         
 	}
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,5 +64,4 @@ public class Obstacle : MonoBehaviour
        
         
     }
-
 }
