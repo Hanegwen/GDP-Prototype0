@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4784849829530748}
   - component: {fileID: 198252548353915280}
   - component: {fileID: 199443028761897956}
+  - component: {fileID: 114491323402241658}
   m_Layer: 0
   m_Name: Star1
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &114491323402241658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418423003969062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ac8d3463f1f7c469b4c86a7c9d6efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198252548353915280
 ParticleSystem:
   m_ObjectHideFlags: 1

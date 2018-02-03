@@ -79,12 +79,12 @@ public class PlayerController : MonoBehaviour
 
         if (where == PlayerPosition.Top)
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, top, Time.deltaTime));
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, top, Time.deltaTime * 2));
         }
 
         else
         {
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, bottom, Time.deltaTime));
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, Mathf.Lerp(this.gameObject.transform.position.y, bottom, Time.deltaTime * 2));
         }
     }
 

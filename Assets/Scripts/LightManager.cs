@@ -8,10 +8,14 @@ public class LightManager : MonoBehaviour {
 
     public ParticleSystem[] Stars;
 
+    public Vector3[] spawnPositions;
+
     public bool spawn;
 
-	// Use this for initialization
-	void Start ()
+    public Vector3 spawnLocation = new Vector3();
+
+    // Use this for initialization
+    void Start ()
     {
         spawn = true;
         player = FindObjectOfType<PlayerController>();
@@ -24,18 +28,44 @@ public class LightManager : MonoBehaviour {
 
         if (spawn)
         {
-            Instantiate(Stars[0], new Vector3 (player.gameObject.transform.position.x - 2, player.gameObject.transform.position.y), Quaternion.identity);
-            Instantiate(Stars[0], new Vector3(player.gameObject.transform.position.x + 7, 3.2f), Quaternion.identity);
-            spawn = false;
-            StartCoroutine(StarDelay());
+            MakeLocation();
+            Spawner();
         }
 
         
     }
 
+
+    void MakeLocation()
+    {
+        int spawn;
+
+        spawn = Random.Range(0, spawnPositions.Length);
+        spawnLocation = spawnPositions[spawn];
+        
+    }
+
+
+    void Spawner()
+    {
+
+        int ranObject;
+        ParticleSystem spawnObject;
+
+        ranObject = Random.Range(0, Stars.Length);
+
+        spawnObject = Stars[ranObject];
+
+        Instantiate(spawnObject, player.transform.position + spawnLocation, Quaternion.identity);
+
+
+        spawn = false;
+        StartCoroutine(StarDelay());
+    }
+
     IEnumerator StarDelay()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         spawn = true;
     }
 }

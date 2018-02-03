@@ -135,7 +135,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleAudio: {fileID: 82058339478838710}
   crashSound: {fileID: 8300000, guid: 48bec60680119744db6ec9ddfea82fae, type: 3}
+  ObstacleType: 0
 --- !u!212 &212575762868880812
 SpriteRenderer:
   m_ObjectHideFlags: 1
