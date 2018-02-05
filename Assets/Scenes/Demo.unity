@@ -1156,6 +1156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stars:
   - {fileID: 198252548353915280, guid: def911b5635d2374ab03f1a62138bb81, type: 2}
+  - {fileID: 198099772046486208, guid: 61fa1c3fbea7c0844af31010cd6db311, type: 2}
   spawnPositions:
   - {x: -2, y: 0, z: 0}
   - {x: 3, y: 1, z: 0}
