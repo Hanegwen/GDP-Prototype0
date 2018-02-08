@@ -9,9 +9,10 @@ public class Obstacle : MonoBehaviour
     public AudioClip crashSound;
 
     public enum enemyState {still, moving, explosive };
-
+    private BoxCollider2D myBoxCollider;
+    public Sprite splode;
     public enemyState ObstacleType;
-
+    private SpriteRenderer currentrenderer;
     //used for explosives
     Vector3 maxSize = new Vector3(2, 2, 1);
 
@@ -20,6 +21,8 @@ public class Obstacle : MonoBehaviour
     {
         player = GameObject.FindObjectOfType<PlayerController>();
         obstacleAudio = GetComponent<AudioSource>();
+         currentrenderer = GetComponent<SpriteRenderer>();
+        myBoxCollider = GetComponent<BoxCollider2D>();
     }
 	
 	// Update is called once per frame
@@ -37,9 +40,15 @@ public class Obstacle : MonoBehaviour
         {
             if (this.gameObject.transform.position.x - player.transform.position.x <= 1.5)
             {
+                if (currentrenderer.sprite != splode)
+                {
+                    currentrenderer.sprite = splode;
+                }
                 if (this.gameObject.transform.localScale != maxSize)
                 {
                     this.gameObject.transform.localScale += new Vector3(0.05f, 0.05f, 0);
+                    myBoxCollider.size += new Vector2(0.005f, 0.005f);
+                    
                 }
             }                     
                         

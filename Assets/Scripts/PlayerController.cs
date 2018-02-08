@@ -97,10 +97,10 @@ public class PlayerController : MonoBehaviour
 
     private void SpeedUp()
     { //set the players speed to increase as the game goes on
-        if (distanceval >= (lasttag + 200))
+        if (distanceval >= (lasttag + 100))
         {
             lasttag = Mathf.RoundToInt(distanceval);
-            speed = speed + 0.5f;
+            speed = speed + 1;
         }
         else { }
     }
