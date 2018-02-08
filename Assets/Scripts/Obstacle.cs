@@ -40,14 +40,14 @@ public class Obstacle : MonoBehaviour
         {
             if (this.gameObject.transform.position.x - player.transform.position.x <= 1.5)
             {
-                if (currentrenderer.sprite != splode)
+                if (currentrenderer.sprite != splode) //changes sprite on orange star to be more reddish while exploding
                 {
                     currentrenderer.sprite = splode;
                 }
                 if (this.gameObject.transform.localScale != maxSize)
                 {
                     this.gameObject.transform.localScale += new Vector3(0.05f, 0.05f, 0);
-                    myBoxCollider.size += new Vector2(0.005f, 0.005f);
+                    myBoxCollider.size += new Vector2(0.005f, 0.005f); //expands box collider during explosion
                     
                 }
             }                     
