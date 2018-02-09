@@ -46,13 +46,14 @@ public class MusicController : MonoBehaviour {
 
     void AdjustBackground()
     {
-        if (!audio1.isPlaying && audio1.clip == backgroundDrums)
+        
+        if (audio1.time > 2 && audio1.clip == backgroundDrums)
         {
             audio1.Play();
             audio1.clip = backgroundBase;
         }
 
-        if (!audio1.isPlaying && audio1.clip == backgroundBase)
+        if (audio1.time > 2 && audio1.clip == backgroundBase)
         {
             
             audio1.Play();

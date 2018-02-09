@@ -8,7 +8,7 @@ public class LightManager : MonoBehaviour {
 
     public ParticleSystem[] Stars;
 
-    public Vector3[] spawnPositions;
+    public Transform[] spawnPositions;
 
     public bool spawn;
 
@@ -44,7 +44,7 @@ public class LightManager : MonoBehaviour {
         int spawn;
 
         spawn = Random.Range(0, spawnPositions.Length);
-        spawnLocation = spawnPositions[spawn];
+        spawnLocation = spawnPositions[spawn].transform.position;
         
     }
 
@@ -68,7 +68,7 @@ public class LightManager : MonoBehaviour {
 
     IEnumerator StarDelay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         spawn = true;
     }
 }

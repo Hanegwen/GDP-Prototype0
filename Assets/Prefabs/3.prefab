@@ -77,7 +77,8 @@ AudioSource:
   m_GameObject: {fileID: 1370231799054950}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243023861748952514, guid: 0e44fda8d2b27bf488ed6eaf843dd06c,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 48bec60680119744db6ec9ddfea82fae, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -183,6 +184,8 @@ MonoBehaviour:
   ObstacleType: 2
   eRadius: 8
   eStart: 8
+  mBounce: 0
+  mSpeed: 0
 --- !u!212 &212575762868880812
 SpriteRenderer:
   m_ObjectHideFlags: 1

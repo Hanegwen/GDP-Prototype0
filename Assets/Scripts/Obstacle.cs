@@ -36,40 +36,42 @@ public class Obstacle : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //moving enemies lerping between lanes
-        if (ObstacleType == enemyState.moving)
-        {
-            this.gameObject.transform.position = Vector3.Lerp(new Vector3(this.gameObject.transform.position.x, 2, 0), new Vector3(this.gameObject.transform.position.x, -2, 0), Mathf.PingPong(Time.time * mBounce, 1.0f));
-            transform.Translate(Vector3.left * Time.deltaTime * mSpeed, Space.World);
-        }
-
-        //enemies expanding
-        if (ObstacleType == enemyState.explosive)
-        {
-            if (this.gameObject.transform.position.x - player.transform.position.x <= eStart)
-            {
-                if (currentrenderer.sprite != splode) //changes sprite on orange star to be more reddish while exploding
-                {
-                    currentrenderer.sprite = splode;
-                }
-                if (this.gameObject.transform.localScale != maxSize)
-                {
-                    this.gameObject.transform.localScale += new Vector3(0.05f, 0.05f, 0);
-                }
-            }                     
-                        
-        }        
-        
-        //destroy object on passing out of view
         if (player != null)
         {
-            if (this.gameObject.transform.position.x - player.transform.position.x < -10)
+            //moving enemies lerping between lanes
+            if (ObstacleType == enemyState.moving)
             {
-                Destroy(this.gameObject);
+                this.gameObject.transform.position = Vector3.Lerp(new Vector3(this.gameObject.transform.position.x, 2, 0), new Vector3(this.gameObject.transform.position.x, -2, 0), Mathf.PingPong(Time.time * mBounce, 1.0f));
+                transform.Translate(Vector3.left * Time.deltaTime * mSpeed, Space.World);
             }
+
+            //enemies expanding
+            if (ObstacleType == enemyState.explosive)
+            {
+                if (this.gameObject.transform.position.x - player.transform.position.x <= eStart)
+                {
+                    if (currentrenderer.sprite != splode) //changes sprite on orange star to be more reddish while exploding
+                    {
+                        currentrenderer.sprite = splode;
+                    }
+                    if (this.gameObject.transform.localScale != maxSize)
+                    {
+                        this.gameObject.transform.localScale += new Vector3(0.05f, 0.05f, 0);
+                    }
+                }
+
+            }
+
+            //destroy object on passing out of view
+            if (player != null)
+            {
+                if (this.gameObject.transform.position.x - player.transform.position.x < -10)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+
         }
-
-
         
 	}
     private void OnCollisionEnter2D(Collision2D collision)
