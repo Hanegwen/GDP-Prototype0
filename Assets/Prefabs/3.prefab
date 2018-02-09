@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1370231799054950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5842826, z: 0}
+  m_LocalPosition: {x: 73.23948, y: 0.77986276, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
 --- !u!82 &82058339478838710
 AudioSource:
@@ -181,6 +181,8 @@ MonoBehaviour:
   crashSound: {fileID: 8300000, guid: 48bec60680119744db6ec9ddfea82fae, type: 3}
   splode: {fileID: 21300000, guid: d9cc8f7145762df44b8301a952e06659, type: 3}
   ObstacleType: 2
+  eRadius: 8
+  eStart: 8
 --- !u!212 &212575762868880812
 SpriteRenderer:
   m_ObjectHideFlags: 1

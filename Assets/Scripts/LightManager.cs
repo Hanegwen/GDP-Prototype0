@@ -26,10 +26,13 @@ public class LightManager : MonoBehaviour {
     {
         StarDelay();
 
-        if (spawn)
+        if (player != null)
         {
-            MakeLocation();
-            Spawner();
+            if (spawn)
+            {
+                MakeLocation();
+                Spawner();
+            }
         }
 
         

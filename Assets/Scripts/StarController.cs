@@ -14,9 +14,12 @@ public class StarController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		if(this.gameObject.transform.position.x + 10 < player.gameObject.transform.position.x)
+        if (player != null)
         {
-            Destroy(this.gameObject);
+            if (this.gameObject.transform.position.x + 20 < player.gameObject.transform.position.x)
+            {
+                Destroy(this.gameObject);
+            }
         }
 	}
 }

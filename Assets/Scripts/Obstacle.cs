@@ -14,15 +14,23 @@ public class Obstacle : MonoBehaviour
     public enemyState ObstacleType;
     private SpriteRenderer currentrenderer;
     //used for explosives
-    Vector3 maxSize = new Vector3(2, 2, 1);
+    public float eRadius;
+    public float eStart;
+    Vector3 maxSize;
+    //used for moving
+    public float mBounce;
+    public float mSpeed;
+
 
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
         obstacleAudio = GetComponent<AudioSource>();
-         currentrenderer = GetComponent<SpriteRenderer>();
+        currentrenderer = GetComponent<SpriteRenderer>();
         myBoxCollider = GetComponent<BoxCollider2D>();
+
+        maxSize = new Vector3(eRadius, eRadius, 1);
     }
 	
 	// Update is called once per frame
@@ -31,14 +39,14 @@ public class Obstacle : MonoBehaviour
         //moving enemies lerping between lanes
         if (ObstacleType == enemyState.moving)
         {
-            this.gameObject.transform.position = Vector3.Lerp(new Vector3(this.gameObject.transform.position.x, 2, 0), new Vector3(this.gameObject.transform.position.x, -2, 0), Mathf.PingPong(Time.time * 0.5f, 1.0f));
-
+            this.gameObject.transform.position = Vector3.Lerp(new Vector3(this.gameObject.transform.position.x, 2, 0), new Vector3(this.gameObject.transform.position.x, -2, 0), Mathf.PingPong(Time.time * mBounce, 1.0f));
+            transform.Translate(Vector3.left * Time.deltaTime * mSpeed, Space.World);
         }
 
         //enemies expanding
         if (ObstacleType == enemyState.explosive)
         {
-            if (this.gameObject.transform.position.x - player.transform.position.x <= 1.5)
+            if (this.gameObject.transform.position.x - player.transform.position.x <= eStart)
             {
                 if (currentrenderer.sprite != splode) //changes sprite on orange star to be more reddish while exploding
                 {
@@ -47,8 +55,6 @@ public class Obstacle : MonoBehaviour
                 if (this.gameObject.transform.localScale != maxSize)
                 {
                     this.gameObject.transform.localScale += new Vector3(0.05f, 0.05f, 0);
-                    myBoxCollider.size += new Vector2(0.005f, 0.005f); //expands box collider during explosion
-                    
                 }
             }                     
                         
@@ -73,4 +79,5 @@ public class Obstacle : MonoBehaviour
        
         
     }
+
 }

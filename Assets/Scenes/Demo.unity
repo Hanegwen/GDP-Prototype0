@@ -1158,7 +1158,7 @@ MonoBehaviour:
   - {fileID: 198252548353915280, guid: def911b5635d2374ab03f1a62138bb81, type: 2}
   - {fileID: 198099772046486208, guid: 61fa1c3fbea7c0844af31010cd6db311, type: 2}
   spawnPositions:
-  - {x: -2, y: 0, z: 0}
+  - {x: 2, y: 0, z: 0}
   - {x: 3, y: 1, z: 0}
   - {x: 1, y: -2, z: 0}
   spawn: 0
@@ -1214,6 +1214,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114724835787398556, guid: 31329f4eaefa79d42a0d6d62a01641d1,
+        type: 2}
+      propertyPath: obstacles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4599377182455484, guid: 31329f4eaefa79d42a0d6d62a01641d1, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.816241
@@ -1256,6 +1261,24 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 138818414}
+    - target: {fileID: 114724835787398556, guid: 31329f4eaefa79d42a0d6d62a01641d1,
+        type: 2}
+      propertyPath: obstacles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1160731413564974, guid: 3142d094dcf797d48a74b398caa8ebae,
+        type: 2}
+    - target: {fileID: 114724835787398556, guid: 31329f4eaefa79d42a0d6d62a01641d1,
+        type: 2}
+      propertyPath: obstacles.Array.data[2]
+      value: 
+      objectReference: {fileID: 1160731413564974, guid: 3142d094dcf797d48a74b398caa8ebae,
+        type: 2}
+    - target: {fileID: 114724835787398556, guid: 31329f4eaefa79d42a0d6d62a01641d1,
+        type: 2}
+      propertyPath: obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1160731413564974, guid: 3142d094dcf797d48a74b398caa8ebae,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114360345596227956, guid: 31329f4eaefa79d42a0d6d62a01641d1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 31329f4eaefa79d42a0d6d62a01641d1, type: 2}
