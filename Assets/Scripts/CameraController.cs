@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public GameObject player;
+    public float cameraOffset;
 
 	// Use this for initialization
 	void Start ()
@@ -17,7 +18,7 @@ public class CameraController : MonoBehaviour {
     {
         if (player != null)
         {
-            this.gameObject.transform.position = new Vector3(player.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+            this.gameObject.transform.position = new Vector3(player.transform.position.x + cameraOffset, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
         }
     }
 }
